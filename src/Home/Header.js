@@ -30,7 +30,7 @@ export default withRouter (class Header extends Component {
               {
                   this.props.location.pathname !== '/myfavorites'
                       && <NavLink exact activeClassName="selected" to="/myfavorites" className="nav-link">
-                  Todo-List
+                  My Favorites
               </NavLink>
               }
     

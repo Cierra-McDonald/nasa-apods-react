@@ -53,7 +53,8 @@ export default class App extends Component {
                         <Route 
                           path="/login" 
                           exact
-                          render={(routerProps) => <LoginPage {...routerProps} />} 
+                          render={(routerProps) => <LoginPage {...routerProps}
+                          handleUserChange={this.handleUserChange} />} 
                       />
                       <Route 
                           path="/apods" 

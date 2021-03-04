@@ -14,3 +14,15 @@ export async function signUpNewUser(email, password) {
 
 }
 
+export async function loginExistingUser(email, password) { 
+
+    const response = await request.post(`${URL}/auth/signin`)
+        .send({
+            email: email,
+            password: password
+        })
+
+        return response.body;
+
+}
+
