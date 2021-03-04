@@ -36,3 +36,45 @@
     transform: rotate(360deg);
   }
 }
+
+a { 
+   margin: 10px;
+  
+  padding: 20px;
+  background-color: darkblue;
+  color: aliceblue;
+  align-content: flex-end;
+
+}
+
+.header { 
+  height: 150px;
+  background-color: black;
+  padding-top: 10px;
+  
+}
+.apod-header { 
+  color: aliceblue;
+  text-align: center;
+  text-justify: center;
+}
+.calendar-form { 
+text-align: center;
+
+}
+
+.sign-up-form { 
+  border: solid 4px black;
+  width: 300px;
+  height: 300px;
+  text-align: center;
+  margin-top: 30px;
+  margin-left: 40%;
+  flex-wrap: wrap;
+  
+}
+.signup-labels { 
+  margin: 10px;
+  margin-bottom: 10px;
+  
+}
