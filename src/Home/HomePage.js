@@ -3,16 +3,25 @@ import { addApodToFavorites, getApodsByDate } from '../ApodsPages/apiUtilis'
 
 export default class HomePage extends Component {
 
+    
     state = { 
         date: '',
         apod:''
     }
+    
+    componentDidMount = async () => { 
+        const date = new Date();
+        const formattedDate = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`;
 
-    // componentDidMount = async () => { 
+        const todayApod = await getApodsByDate(formattedDate)
 
-    //    await getApodsByDate();
+        await this.setState({
+            apod: todayApod
+        });
 
-    // }
+
+    }
+
     //need to add error handling!
     getApods = async (e) => { 
 
@@ -48,6 +57,9 @@ export default class HomePage extends Component {
 
 
     }
+
+    
+
 
     render() {
         return (

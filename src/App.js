@@ -10,10 +10,10 @@ import Header from './Home/Header';
 import HomePage from './Home/HomePage';
 import LoginPage from './AuthPages/LoginPage'
 import SignUpPage from './AuthPages/SignUpPage';
-import ApodsListPage from './ApodsPages/ApodsListPage';
 import ApodsFavoritesPage from './ApodsPages/ApodsFavoritesPage';
 import PrivateRoute from './Home/PrivateRoute';
 import { addUserToLocalStorage, getUserFromLocalStorage } from './localStorageUtils'
+import Footer from './Home/Footer';
 
 export default class App extends Component {
 
@@ -29,6 +29,10 @@ export default class App extends Component {
     
   }
 
+  handleLogout = () => { 
+    this.handleUserChange();
+  }
+
 
   render() {
     const { user } = this.state;
@@ -37,7 +41,8 @@ export default class App extends Component {
           <div>
               <Router>
               <Header
-              user={this.state.user}/>
+              user={this.state.user}
+              handleLogout={this.handleLogout}/>
                   <Switch>
                       <Route 
                           path="/" 
@@ -57,12 +62,6 @@ export default class App extends Component {
                           render={(routerProps) => <LoginPage {...routerProps}
                           handleUserChange={this.handleUserChange} />} 
                       />
-                      {/* <Route 
-                          path="/apods" 
-                          exact
-                          render={(routerProps) => <ApodsListPage {...routerProps}
-                          />} 
-                      /> */}
                         <PrivateRoute 
                           path="/myfavorites" 
                           exact
@@ -72,8 +71,8 @@ export default class App extends Component {
                             user={this.state.user}
                             {...routerProps} />} 
                       />
-                     
                   </Switch>
+                      {/* <Footer/> */}
               </Router>
           </div>
       )

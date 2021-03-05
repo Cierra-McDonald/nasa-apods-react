@@ -23,6 +23,13 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+.footer {
+  background-color:black;
+  position:absolute;
+  bottom:0; 
+  width:100%;
+  height:60px;   /* Height of the footer */
+}
 
 .App-link {
   color: #61dafb;
@@ -39,7 +46,6 @@
 
 a { 
    margin: 10px;
-  
   padding: 20px;
   background-color: darkblue;
   color: aliceblue;
@@ -91,9 +97,31 @@ text-align: center;
   justify-content: center;
 }
 
-.apod-apod img { 
+.apod-apod img{ 
   height: 250px;
   width: 275px;
   
-
 }
+
+.apod-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.apod-item { 
+  border: 2px solid black;
+  border-radius: 2em;
+  height: fit-content;
+  width: 375px;
+  margin: 20px;
+  padding: 20px;
+  text-align: center;
+  background-color: aliceblue;
+
+  
+}
+.apod-item img{
+  height: 250px;
+  width: 275px;
+}
+

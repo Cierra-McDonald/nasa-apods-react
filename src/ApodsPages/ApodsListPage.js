@@ -11,7 +11,7 @@ export default class ApodsListPage extends Component {
                 ?
                 <div>Coming back from space!</div>
                 :
-            <ul>
+            <ul className="apod-list">
                 {this.props.mapOutApods.map(oneApod => <ApodItem
                 key={oneApod.id}
                 apodProp={oneApod}/>)}

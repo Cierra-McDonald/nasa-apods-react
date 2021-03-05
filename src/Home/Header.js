@@ -28,13 +28,18 @@ export default withRouter (class Header extends Component {
               </NavLink>
               }
               {
-                  this.props.location.pathname !== '/myfavorites'
-                      && <NavLink exact activeClassName="selected" to="/myfavorites" className="nav-link">
-                  My Favorites
-              </NavLink>
+            //       this.props.location.pathname !== '/myfavorites'
+            //           && <NavLink exact activeClassName="selected" to="/myfavorites" className="nav-link">
+            //         Favorites!      
+            //   </NavLink>
+                    this.props.user && this.props.user.token && <>
+                    <NavLink to='/myfavorites'>Favorites!</NavLink>
+                    <button onClick={this.props.handleLogout}>Sign Out</button>
+                    </>
               }
     
           </div>
         )
     }
 })
+
