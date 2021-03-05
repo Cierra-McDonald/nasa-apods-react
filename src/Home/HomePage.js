@@ -45,7 +45,7 @@ export default class HomePage extends Component {
     }
 
     handleFavoriteButton = async (e) => { 
-        console.log('in the button!')
+        
         e.preventDefault()
         console.log(this.props.user.token);
         await addApodToFavorites(this.props.user.token, {
@@ -54,6 +54,10 @@ export default class HomePage extends Component {
             image: this.state.apod.url,
             description: this.state.apod.explanation
         })
+
+        if (!this.props.user.token) {
+            return 'You are not logged in! Please sign up or log in before adding to your favorites'
+        }
 
 
     }

@@ -31,6 +31,7 @@ export default class App extends Component {
 
   handleLogout = () => { 
     this.handleUserChange();
+    localStorage.clear();
   }
 
 
