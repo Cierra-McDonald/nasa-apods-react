@@ -1,6 +1,8 @@
 import request from 'superagent'
 
-const URL = 'http://localhost:3000';
+// const URL = 'http://localhost:3000';
+
+const URL = 'https://damp-citadel-09316.herokuapp.com'
 
 export async function signUpNewUser(email, password) {
     

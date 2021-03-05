@@ -27,7 +27,7 @@ export default class SignUpPage extends Component {
         const user = await signUpNewUser(this.state.email, this.state.password);
         this.props.handleUserChange(user);
 
-        this.props.history.push('/myfavorites')
+        this.props.history.push('/')
 
     }
 
