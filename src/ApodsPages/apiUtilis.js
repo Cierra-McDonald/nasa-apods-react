@@ -26,3 +26,35 @@ export async function loginExistingUser(email, password) {
 
 }
 
+export async function getApodsByDate(query) { 
+    
+    const response = await request.get(`${URL}/apods?date=${query}`)
+
+    return response.body;
+}
+
+export async function addApodToFavorites(token, apod) { 
+
+    const response = await request.post(`${URL}/api/favorites`)
+        .set('Authorization', token)
+        .send(apod)
+
+    return response.body;
+}
+
+export async function getApodFavorites(token) { 
+
+    const response = await request.get(`${URL}/api/favorites`)
+        .set('Authorization', token)
+        
+        return response.body;
+}
+
+export async function deleteApodFavorite(token) { //need to add something, not sure what yet
+
+    const response = await request.delete(`${URL}/api/favorites/:id`)
+        .set('Authorization', token)
+
+        return response.body
+}
+

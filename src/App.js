@@ -42,7 +42,8 @@ export default class App extends Component {
                       <Route 
                           path="/" 
                           exact
-                          render={(routerProps) => <HomePage {...routerProps} />} 
+                          render={(routerProps) => <HomePage
+                            user={this.state.user} {...routerProps} />} 
                       />
                       <Route 
                           path="/signup" 
@@ -56,12 +57,12 @@ export default class App extends Component {
                           render={(routerProps) => <LoginPage {...routerProps}
                           handleUserChange={this.handleUserChange} />} 
                       />
-                      <Route 
+                      {/* <Route 
                           path="/apods" 
                           exact
                           render={(routerProps) => <ApodsListPage {...routerProps}
                           />} 
-                      />
+                      /> */}
                         <PrivateRoute 
                           path="/myfavorites" 
                           exact
