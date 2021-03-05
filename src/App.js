@@ -13,7 +13,7 @@ import SignUpPage from './AuthPages/SignUpPage';
 import ApodsFavoritesPage from './ApodsPages/ApodsFavoritesPage';
 import PrivateRoute from './Home/PrivateRoute';
 import { addUserToLocalStorage, getUserFromLocalStorage } from './localStorageUtils'
-import Footer from './Home/Footer';
+
 
 export default class App extends Component {
 
@@ -73,7 +73,6 @@ export default class App extends Component {
                             {...routerProps} />} 
                       />
                   </Switch>
-                      {/* <Footer/> */}
               </Router>
           </div>
       )
