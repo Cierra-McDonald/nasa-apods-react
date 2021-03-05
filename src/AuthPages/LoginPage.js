@@ -10,7 +10,7 @@ export default class LoginPage extends Component {
 
 
     handleEmailChange = (e) => { 
-        // console.log(e.target.value)
+        
         this.setState({ 
             email: e.target.value
         })
@@ -25,7 +25,7 @@ export default class LoginPage extends Component {
 
     handleSubmitForm = async (e) => { 
         e.preventDefault();
-        console.log(this.state)
+       
         const user = await loginExistingUser(this.state.email, this.state.password);
 
         this.props.handleUserChange(user); //getting the state from App.js and putting the user in localStorage

@@ -26,8 +26,7 @@ export default class HomePage extends Component {
     getApods = async (e) => { 
 
         const apodList = await getApodsByDate(e.target.value)
-        console.log(apodList);
-
+        
         await this.setState({
             apod: apodList
         });
@@ -36,7 +35,7 @@ export default class HomePage extends Component {
 
     handleDateChange = (e) => {
         e.preventDefault()
-        console.log(e.target.value)
+        
 
         this.setState({
             date: e.target.value
@@ -47,7 +46,7 @@ export default class HomePage extends Component {
     handleFavoriteButton = async (e) => { 
         
         e.preventDefault()
-        console.log(this.props.user.token);
+        
         await addApodToFavorites(this.props.user.token, {
             title: this.state.apod.title,
             date: this.state.apod.date,

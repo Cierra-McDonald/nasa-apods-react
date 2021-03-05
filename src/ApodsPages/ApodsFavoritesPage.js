@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { getApodFavorites } from './apiUtilis'
+import { deleteApodFavorite, getApodFavorites } from './apiUtilis'
 import ApodsListPage from './ApodsListPage'
 
 export default class ApodsFavoritesPage extends Component {
@@ -23,12 +23,20 @@ export default class ApodsFavoritesPage extends Component {
 
     getUserFaves = async () => {
 
-        console.log(this.props.user.token);
         const userFaves = await getApodFavorites(this.props.user.token)
-        console.log(userFaves);
+        
         this.setState({
             favoriteApods: userFaves
         })
+    }
+
+    deleteUserFave = async (i) => { 
+
+        await deleteApodFavorite(this.props.user.token, i.target.value);
+        
+        await this.getUserFaves()
+        
+        
     }
 
 
@@ -37,7 +45,8 @@ export default class ApodsFavoritesPage extends Component {
             <div>
                 <ApodsListPage
                 loading={this.state.loading}
-                mapOutApods={this.state.favoriteApods}/>
+                mapOutApods={this.state.favoriteApods}
+                deleteApod={()=>this.deleteUserFave}/>
             </div>
         )
     }

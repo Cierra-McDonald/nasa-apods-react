@@ -14,7 +14,9 @@ export default class ApodsListPage extends Component {
             <ul className="apod-list">
                 {this.props.mapOutApods.map(oneApod => <ApodItem
                 key={oneApod.id}
-                apodProp={oneApod}/>)}
+                key1={oneApod.id}
+                apodProp={oneApod}
+                deleteApod={this.props.deleteApod}/>)}
             </ul>
 
                 }

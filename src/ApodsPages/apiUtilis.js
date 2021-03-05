@@ -50,10 +50,11 @@ export async function getApodFavorites(token) {
         return response.body;
 }
 
-export async function deleteApodFavorite(token) { //need to add something, not sure what yet
+export async function deleteApodFavorite(token, picId) { //need to add something, not sure what yet
 
-    const response = await request.delete(`${URL}/api/favorites/:id`)
+    const response = await request.delete(`${URL}/api/favorites/${picId}`)
         .set('Authorization', token)
+        .send(picId)
 
         return response.body
 }

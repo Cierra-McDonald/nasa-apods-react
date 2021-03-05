@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 
 export default class ApodItem extends Component {
+
+
     render() {
         return (
             <div>
@@ -9,7 +11,7 @@ export default class ApodItem extends Component {
                     <div className="apod-map">{this.props.apodProp.date}</div>
                     <img className="apod-map" src={this.props.apodProp.image} alt={this.props.apodProp.title}/>
                     {/* <div className="apod-map">{this.props.apodProp.description}</div> */}
-                    <button>Delete From Space Faves</button>
+                    <button value={this.props.key1} onClick={this.props.deleteApod(this.props.key1)}>Delete From Space Faves</button>
                 </div>
                 
             </div>
