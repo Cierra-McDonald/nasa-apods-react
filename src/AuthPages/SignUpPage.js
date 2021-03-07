@@ -23,11 +23,16 @@ export default class SignUpPage extends Component {
 
     handleSubmitForm = async (e) => { 
         e.preventDefault()
+        try {
 
         const user = await signUpNewUser(this.state.email, this.state.password);
+        
         this.props.handleUserChange(user);
 
         this.props.history.push('/')
+        } catch(e) { 
+            this.setState({ error: e.response.body.error })
+        } 
 
     }
 
@@ -37,6 +42,7 @@ export default class SignUpPage extends Component {
                 <form className="sign-up-form"
                 onSubmit={this.handleSubmitForm}>
                     <h2>Sign-Up Here!</h2>
+                    {this.state.error && <h5 style={{ color: 'red'}}>Uh oh, {this.state.error}, please try again!</h5>}
                     <label className="signup-labels">
                         Email:
                         <input className="signup-labels" value={this.state.email} onChange={this.handleEmailChange}/>

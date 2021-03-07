@@ -88,20 +88,33 @@ text-align: center;
   border: solid 3px black;
   height: fit-content;
   width: 375px;
-  align-items: center;
-  flex-direction: column;
   padding: 20px;
   margin-top: 30px;
-  margin-left: 30%;
+  background-color: white;
   text-align: center;
-  justify-content: center;
-}
+  /* display: flex; */
+  margin: auto; 
+  /* position: relative; */
+  display: flex-end;
 
+
+}
 .apod-apod img{ 
   height: 250px;
   width: 275px;
+
+}
+
+.outer-apod-div { 
+  /* background-color: blue; */
+  /* position: relative; */
+  /* display: flex; */
+  margin-top: 3%;
+    
+  
   
 }
+
 
 .apod-list {
   display: flex;
