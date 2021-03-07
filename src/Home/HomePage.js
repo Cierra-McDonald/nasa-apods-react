@@ -53,17 +53,19 @@ export default class HomePage extends Component {
     handleFavoriteButton = async (e) => { 
         
         e.preventDefault()
-        
+
+        try {
         await addApodToFavorites(this.props.user.token, {
             title: this.state.apod.title,
             date: this.state.apod.date,
             image: this.state.apod.url,
             description: this.state.apod.explanation
         })
-
-        if (!this.props.user.token) {
-            return 'You are not logged in! Please sign up or log in before adding to your favorites'
+        } catch(e) { 
+            this.setState({ error: 'Uh oh, please login to add this to your favorites.' })
         }
+
+        
 
 
     }
@@ -86,6 +88,7 @@ export default class HomePage extends Component {
                     :
                     <div className="outer-apod-div">
                         <div className="apod-apod">
+                            {this.state.error && <h5 style={{ color: 'red'}}>{this.state.error}</h5>}
                             <h3>{this.state.apod.title}</h3>
                             <p>Date:{this.state.apod.date}</p>
                             <img src={this.state.apod.url} alt={this.state.apod.title}/>
