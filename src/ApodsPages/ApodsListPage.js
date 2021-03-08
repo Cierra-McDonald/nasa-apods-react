@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ApodItem from './ApodItem'
+import loadingCircle from '../assets/loadcircle.gif'
 
 export default class ApodsListPage extends Component {
     render() {
@@ -9,7 +10,7 @@ export default class ApodsListPage extends Component {
               { 
               loading
                 ?
-                <div>Coming back from space!</div>
+                <div><img className="loading-circle" src ={loadingCircle} alt="hi i'm loading"/></div>
                 :
             <ul className="apod-list">
                 {this.props.mapOutApods.map(oneApod => <ApodItem

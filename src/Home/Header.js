@@ -21,6 +21,12 @@ export default withRouter (class Header extends Component {
                   Sign-Up
               </NavLink>
               }
+               {
+                  this.props.location.pathname !== '/play'
+                      && <NavLink exact activeClassName="selected" to="/play" className="nav-link">
+                  Play LogIn
+              </NavLink>
+              }
               {
                   this.props.location.pathname !== '/login'
                       && <NavLink exact activeClassName="selected" to="/login" className="nav-link">

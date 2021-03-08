@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { addApodToFavorites, getApodsByDate } from '../ApodsPages/apiUtilis'
-// import { loading } from '../loading';
+import loadingCircle from '../assets/loadcircle.gif';
 
 export default class HomePage extends Component {
 
@@ -29,7 +29,7 @@ export default class HomePage extends Component {
 
     }
 
-    //need to add error handling!
+
     getApods = async (e) => { 
 
         const apodList = await getApodsByDate(e.target.value)
@@ -43,11 +43,10 @@ export default class HomePage extends Component {
     handleDateChange = (e) => {
         e.preventDefault()
         
-
         this.setState({
             date: e.target.value
         })
-        // this.props.history.push('/apods')
+        
     }
 
     handleFavoriteButton = async (e) => { 
@@ -65,9 +64,6 @@ export default class HomePage extends Component {
             this.setState({ error: 'Uh oh, please login to add this to your favorites.' })
         }
 
-        
-
-
     }
 
     
@@ -84,7 +80,7 @@ export default class HomePage extends Component {
                 {
                     this.state.loading 
                     ?
-                    <div> Hi I'm loading! </div>
+                    <div> <img className="loading-circle" src ={loadingCircle} alt="hi i'm loading"/> </div>
                     :
                     <div className="outer-apod-div">
                         <div className="apod-apod">

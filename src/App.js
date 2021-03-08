@@ -13,7 +13,7 @@ import SignUpPage from './AuthPages/SignUpPage';
 import ApodsFavoritesPage from './ApodsPages/ApodsFavoritesPage';
 import PrivateRoute from './Home/PrivateRoute';
 import { addUserToLocalStorage, getUserFromLocalStorage } from './localStorageUtils'
-
+import { BasicTextFields }  from './AuthPages/LoginPlay'
 
 export default class App extends Component {
 
@@ -62,6 +62,13 @@ export default class App extends Component {
                           exact
                           render={(routerProps) => <LoginPage {...routerProps}
                           handleUserChange={this.handleUserChange} />} 
+                      />
+                       <Route 
+                          path="/play" 
+                          exact
+                          render={(routerProps) => <BasicTextFields {...routerProps}
+                          handleUserChange={this.handleUserChange} 
+                          dummyProp="cat"/>} 
                       />
                         <PrivateRoute 
                           path="/myfavorites" 
